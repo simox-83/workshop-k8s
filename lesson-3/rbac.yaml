@@ -1,0 +1,24 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: gordons-admin
+  namespace: simone
+rules:
+- apiGroups: ["<CUSTOM_NAMESPACE>.prgcont.cz"]
+  resources: ["gordons"]
+  verbs: ["*"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: gordons-admin
+  namespace: simone
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: gordons-admin
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: simone

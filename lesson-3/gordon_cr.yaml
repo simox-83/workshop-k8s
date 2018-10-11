@@ -1,0 +1,7 @@
+apiVersion: "operator.prgcont.cz/v1"
+kind: Gordon
+metadata:
+  name: gordoncluster
+spec:
+  gordon: 
+    replicas: 1
